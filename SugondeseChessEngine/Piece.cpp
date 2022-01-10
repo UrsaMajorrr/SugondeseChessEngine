@@ -2,7 +2,11 @@ class Piece {
 public:
 	int value;
 
-	void PieceValue() {
-		std::cout << value;
+	Piece(int x) {
+		value = x;
+	}
+
+	int getPieceValue() {
+		return value;
 	}
 };
