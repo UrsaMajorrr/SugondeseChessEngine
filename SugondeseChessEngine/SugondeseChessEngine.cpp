@@ -13,9 +13,10 @@ Start Date: 1/10/2022
 
 int main()
 {
-    Piece knight(3);
+    Piece knight(3, "knight");
 
     std::cout << "Hello World!\n";
     std::cout << knight.getPieceValue();
+    std::cout << knight.getPieceName();
 }
 
