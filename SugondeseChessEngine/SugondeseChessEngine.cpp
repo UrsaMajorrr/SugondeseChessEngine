@@ -9,10 +9,14 @@ Start Date: 1/10/2022
 */
 
 #include <iostream>
-using namespace std;
+#include "Piece.cpp"
 
 int main()
 {
-    cout << "Hello World!\n";
+    Piece knight;
+
+    std::cout << "Hello World!\n";
+    knight.value = 3;
+    knight.PieceValue();
 }
 
