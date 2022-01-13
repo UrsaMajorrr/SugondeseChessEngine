@@ -1,11 +1,20 @@
 /*
-This class holds everything that pieces have in common.
+Sugondese Chess Engine; version 1.0
+Authors: Kade Carlson, Noah Muthler, Quintin Nelson, Kevin Dong
+Contact Info:
+kkc5441@psu.edu
+nsm5313@psu.edu
+qcn101@psu.edu
+kfd5270@psu.edu
+Start Date: 1/10/2022
+
+Description: This class holds all the functions and variables that pieces have in common.
 */
 
 class Piece {
 public:
 	int value;
-    std:: string name;
+    std::string name;
 
 	int getPieceValue() {
 		return value;
