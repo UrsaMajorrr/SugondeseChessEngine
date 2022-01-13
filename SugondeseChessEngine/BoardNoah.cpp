@@ -1,10 +1,11 @@
 /*
 Sugondese Chess Engine; version 1.0
-Authors: Kade Carlson, Noah Muthler, Quintin Nelson
+Authors: Kade Carlson, Noah Muthler, Quintin Nelson, Kevin Dong
 Contact Info:
 kkc5441@psu.edu
 nsm5313@psu.edu
 qcn101@psu.edu
+kfd5270@psu.edu
 Start Date: 1/10/2022
 */
 
