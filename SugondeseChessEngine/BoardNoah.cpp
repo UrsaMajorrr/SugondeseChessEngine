@@ -13,6 +13,8 @@ Start Date: 1/10/2022
 #include <sstream>
 #include <string>
 #include <Windows.h>
+using namespace std;
+
 
 /*
 int main() {
@@ -24,6 +26,7 @@ int main() {
     std::cout << "|" << std::endl;
 }
 */
+/*
 int main() {
     char board[] = "RNBQKBNRPPPPPPPP________________________________pppppppprnbqkbnr";
     char temp[8];
@@ -34,4 +37,21 @@ int main() {
         std::cout << temp;
         std::cout << "\n";
     }
+}
+*/
+
+int main() {
+    //namespace rs = ranges;
+    //namespace rv = ranges::views;
+    string input = "RNBQKBNRPPPPPPPP________________________________pppppppprnbqkbnr";
+    //auto board = input | rv::intersperse(' ') | rs::to<std::string>;
+    string end = "\n";
+    cout << board.substr(0,8) + end;
+    cout << board.substr(8,8) + end;
+    cout << board.substr(16,8) + end;
+    cout << board.substr(24,8) + end;
+    cout << board.substr(32,8) + end;
+    cout << board.substr(40,8) + end;
+    cout << board.substr(48,8) + end;
+    cout << board.substr(56,8) + end;
 }
