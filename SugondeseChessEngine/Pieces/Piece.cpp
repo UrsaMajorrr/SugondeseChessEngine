@@ -5,7 +5,7 @@
 //					 This is also the parent class for all other pieces
 //
 //  Authors        : Kade Carlson, Noah Muthler, Quintin Nelson, Kevin Dong
-//  Last Modified  : 1/13/2022 8:22 PM EST
+//  Last Modified  : 1/13/2022 9:13 PM EST
 //
 
 //Includes
@@ -16,36 +16,104 @@ using namespace std;
 //Project Includes
 
 //Implementation
-class Piece {
+class Piece
+{
 public:
+	//values
 	int value;
-    std::string name;
+	enum class PieceType : char
+	{
+		PAWN = 'P',
+		ROOK = 'R',
+		KNIGHT = 'N',
+		BISHOP = 'B',
+		KING = 'K',
+		QUEEN = 'Q'
+	};
 	int position;
-	enum {WHITE = 0xFFFFFF, BLACK = 0x000000} color;
+	PieceType pieceType;
+	enum COLOR
+	{
+		WHITE = 0xFFFFFF,
+		BLACK = 0x000000
+	};
+	COLOR color;
 	bool isFirstMove;
 
-	int getPieceValue() {
+	//constructor
+	Piece(int value, int postion, PieceType pieceType, COLOR color, bool isFirstMove)
+	{
+		value = value;
+		position = position;
+		pieceType = pieceType;
+		color = color;
+		isFirstMove = isFirstMove;
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	//
+	// Function     : getPieceValue
+	// Description  : return's the piece value
+	//
+	// Inputs       : none
+	// Outputs      : value
+	int getPieceValue()
+	{
 		return value;
 	}
 
-	string getPieceName() {
-		return name;
+	////////////////////////////////////////////////////////////////////////////////
+	//
+	// Function     : getPieceType
+	// Description  : return's the piece type
+	//
+	// Inputs       : none
+	// Outputs      : pieceType
+	PieceType getPieceType()
+	{
+		return pieceType;
 	}
 
-	int getPiecePostion(){
+	////////////////////////////////////////////////////////////////////////////////
+	//
+	// Function     : getPiecePosition
+	// Description  : return's the piece position
+	//
+	// Inputs       : none
+	// Outputs      : position
+	int getPiecePostion()
+	{
 		return position;
 	}
 
-	int returnColor (){
+	////////////////////////////////////////////////////////////////////////////////
+	//
+	// Function     : getColor
+	// Description  : return's the piece color
+	//
+	// Inputs       : none
+	// Outputs      : color
+	COLOR getColor()
+	{
 		return color;
 	}
 
-	bool returnIsFirstMove(){
+	////////////////////////////////////////////////////////////////////////////////
+	//
+	// Function     : getIsFirstMove
+	// Description  : return isFirstMove
+	//
+	// Inputs       : none
+	// Outputs      : isFirstMove
+	bool getIsFirstMove()
+	{
 		return isFirstMove;
 	}
 
-	bool isLegalMove() {
+	/*
+	bool isLegalMove()
+	{
 		std::cout << "Move is legal";
 		return true;
-	}
+	}*/
 };
