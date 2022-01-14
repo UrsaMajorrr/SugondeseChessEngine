@@ -1,8 +1,3 @@
-#include "Piece.cpp"
-#include <iostream>
-#include <string>
-using namespace std;
-
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  File           : Pawn.cpp
@@ -12,6 +7,13 @@ using namespace std;
 //  Authors        : Kade Carlson, Noah Muthler, Quintin Nelson, Kevin Dong
 //  Last Modified  : 1/13/2022 9:13 PM EST
 //
+
+//inlcudes
+#include "Piece.cpp"
+#include <iostream>
+#include <string>
+using namespace std;
+
 class Pawn : public Piece
 {
 public:
