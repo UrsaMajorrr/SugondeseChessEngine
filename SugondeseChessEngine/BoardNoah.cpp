@@ -19,7 +19,7 @@ using namespace std;
 string spaced( string str )
 {
    if ( str == "" ) return str;
-
+   
    string result( 2 * str.size() - 1, ' ' );
    for ( int i = 0, j = 0; i < str.size(); i++, j+=2 ) result[j] = str[i];
    return result;
