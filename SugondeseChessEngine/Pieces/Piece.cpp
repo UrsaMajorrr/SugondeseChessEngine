@@ -11,6 +11,7 @@
 //Includes
 #include <string>
 #include <iostream>
+using namespace std;
 
 //Project Includes
 
@@ -19,13 +20,28 @@ class Piece {
 public:
 	int value;
     std::string name;
+	int position;
+	enum {WHITE = 0xFFFFFF, BLACK = 0x000000} color;
+	bool isFirstMove;
 
 	int getPieceValue() {
 		return value;
 	}
 
-	std::string getPieceName() {
+	string getPieceName() {
 		return name;
+	}
+
+	int getPiecePostion(){
+		return position;
+	}
+
+	int returnColor (){
+		return color;
+	}
+
+	bool returnIsFirstMove(){
+		return isFirstMove;
 	}
 
 	bool isLegalMove() {
