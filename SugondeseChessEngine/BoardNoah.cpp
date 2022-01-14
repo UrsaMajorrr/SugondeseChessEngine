@@ -18,16 +18,6 @@ Description: This file holds all the functionality that has to do with the board
 #include <Windows.h>
 using namespace std;
 
-<<<<<<< HEAD
-string spaced( string str )
-{
-   if ( str == "" ) return str;
-   
-   string result( 2 * str.size() - 1, ' ' );
-   for ( int i = 0, j = 0; i < str.size(); i++, j+=2 ) result[j] = str[i];
-   return result;
-}
-=======
 class BoardNoah {
 public:
     string spaced(string str)
@@ -38,7 +28,6 @@ public:
         for (int i = 0, j = 0; i < str.size(); i++, j += 2) result[j] = str[i];
         return result;
     }
->>>>>>> 5e8e5f99d69a608250085ccfa4175d38369ba959
 
     void printBoard(string input) {
         string board = spaced(input);
