@@ -18,10 +18,9 @@ class Pawn : public Piece
 {
 public:
     //Constructor
-    Pawn( int postion, COLOR color, bool isFirstMove) : Piece(1, postion, PieceType::PAWN, color, isFirstMove){
-    };
+    Pawn(int postion, COLOR color, bool isFirstMove) : Piece(1, postion, PieceType::PAWN, color, isFirstMove){};
 
-/*
+    /*
     bool isLegalMove()
     {
         std::cout << "This move may or may not be legal";
