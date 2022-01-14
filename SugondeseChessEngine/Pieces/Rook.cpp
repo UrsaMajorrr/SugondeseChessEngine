@@ -14,15 +14,15 @@
 #include <string>
 using namespace std;
 
-
-
-
-class Rook : public Piece {
+class Rook : public Piece
+{
 public:
     //constructor
     Rook(int postion, COLOR color, bool isFirstMove) : Piece(5, postion, PieceType::ROOK, color, isFirstMove){};
 
-	bool isLegalMove() {
+    /*
+    bool isLegalMove() {
 		return true;
 	}
+    */
 };
