@@ -18,25 +18,37 @@ using namespace std;
 //Implementation
 class Piece {
 public:
+	//values
 	int value;
-    std::string name;
+    enum class PieceType: char {PAWN='P', ROOK='R', KNIGHT = 'N', BISHOP = 'B', KING = 'K', QUEEN = 'Q'} ;
 	int position;
-	enum {WHITE = 0xFFFFFF, BLACK = 0x000000} color;
+	PieceType pieceType;
+	enum COLOR {WHITE = 0xFFFFFF, BLACK = 0x000000} ;
+	COLOR color;
 	bool isFirstMove;
+
+	//constructor
+	Piece(int value, int postion, PieceType pieceType, COLOR color, bool isFirstMove){
+		value = value;
+		position = position;
+		pieceType = pieceType;
+		color = color;
+		isFirstMove = isFirstMove;
+	}
 
 	int getPieceValue() {
 		return value;
 	}
 
-	string getPieceName() {
-		return name;
+	PieceType getPieceType() {
+		return pieceType;
 	}
 
 	int getPiecePostion(){
 		return position;
 	}
 
-	int returnColor (){
+	COLOR getColor (){
 		return color;
 	}
 
