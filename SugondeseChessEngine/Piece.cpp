@@ -1,3 +1,8 @@
+#include <string>
+#include <iostream>
+
+
+
 /*
 Sugondese Chess Engine; version 1.0
 Authors: Kade Carlson, Noah Muthler, Quintin Nelson, Kevin Dong
