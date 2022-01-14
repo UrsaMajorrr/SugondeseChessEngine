@@ -1,21 +1,20 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  File           : Piece.cpp
+//  Description    : This class holds all the functions and variables that pieces have in common.
+//					 This is also the parent class for all other pieces
+//
+//  Authors        : Kade Carlson, Noah Muthler, Quintin Nelson, Kevin Dong
+//  Last Modified  : 1/13/2022 8:22 PM EST
+//
+
+//Includes
 #include <string>
 #include <iostream>
 
+//Project Includes
 
-
-/*
-Sugondese Chess Engine; version 1.0
-Authors: Kade Carlson, Noah Muthler, Quintin Nelson, Kevin Dong
-Contact Info:
-kkc5441@psu.edu
-nsm5313@psu.edu
-qcn101@psu.edu
-kfd5270@psu.edu
-Start Date: 1/10/2022
-
-Description: This class holds all the functions and variables that pieces have in common.
-*/
-
+//Implementation
 class Piece {
 public:
 	int value;
