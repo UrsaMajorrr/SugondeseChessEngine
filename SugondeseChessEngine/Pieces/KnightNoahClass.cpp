@@ -99,8 +99,49 @@ class Knight : public Piece {
 	}
 	
 	string * setLegalMoves() {
-		string legalMoves[16] = {"u2r1","u2l1","u1r2","u1l2","l2u1","l2d1","l1u2","l1d2", "r2u1","r2d1","r1u2", "r1d2", "d2r1", "d2l1", "d1r2", "d1l2"};
-		
+		string legalMoves[8] = {"u2r1","u2l1","l2u1","l2d1", "r2u1","r2d1", "d2r1", "d2l1"};
+		int row = (int) errorPair.at(0);
+		int col = (int) errorPair.at(1);
+		if (row == 1) {
+			deleteElement(legalMoves, "u2r1");
+			deleteElement(legalMoves, "u2l1");
+			deleteElement(legalMoves, "l2u1");
+			deleteElement(legalMoves, "r2u1");
+		}
+		if (row == 2) {
+			deleteElement(legalMoves, "u2r1");
+			deleteElement(legalMoves, "u2l1");
+		}
+		if (row == 3) {
+			deleteElement(legalMoves, "d2r1");
+			deleteElement(legalMoves, "d2l1");
+		}
+		if (row == 4) {
+			deleteElement(legalMoves, "d2r1");
+			deleteElement(legalMoves, "d2l1");
+			deleteElement(legalMoves, "r2d1");
+			deleteElement(legalMoves, "l2d1");
+		}
+		if (col == 1) {
+			deleteElement(legalMoves, "u2l1");
+			deleteElement(legalMoves, "l2u1");
+			deleteElement(legalMoves, "l2d1");
+			deleteElement(legalMoves, "d2l1");
+		}
+		if (col == 2) {
+			deleteElement(legalMoves, "l2u1");
+			deleteElement(legalMoves, "l2d1");
+		}
+		if (col == 3) {
+			deleteElement(legalMoves, "r2u1");
+			deleteElement(legalMoves, "r2d1");
+		}
+		if (col == 4) {
+			deleteElement(legalMoves, "r2u1");
+			deleteElement(legalMoves, "r2d1");
+			deleteElement(legalMoves, "u2r1");
+			deleteElement(legalMoves, "d2r1");
+		}
 		return legalMoves;
 	}
 	bool legalKnightMove(int index) {
@@ -113,7 +154,13 @@ class Knight : public Piece {
 	}
 };
 
-
+void deleteElement(string lst[16], string delStr) {
+	for(int i=0; i < 16; i++) {
+		if(lst[i] == delStr) {
+			lst[i] = ' ';
+		}
+	}
+}
 
 
 int main() {
