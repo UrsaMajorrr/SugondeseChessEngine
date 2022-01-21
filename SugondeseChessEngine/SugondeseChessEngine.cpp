@@ -16,7 +16,7 @@ Description: This file is the main file. Will run and execute the code.
 #include <sstream>
 #include <string>
 #include <Windows.h>
-#include "Piece.cpp"
+#include "Pieces/Piece.cpp"
 #include "BoardNoah.cpp"
 
 int main()

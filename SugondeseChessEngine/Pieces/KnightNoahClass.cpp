@@ -18,7 +18,7 @@ using namespace std;
 
 class Knight : public Piece {
 	string errorPair; // two character string (row/colomn)
-	
+	 
 	
 	void setErrorPair() {
 		if((position >= 18 && position <= 21) || (position >= 26 && position <= 29) || (position >= 34 && position <= 37) || (position >= 42 && position <= 45)) {
