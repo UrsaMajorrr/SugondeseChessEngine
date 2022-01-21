@@ -11,6 +11,23 @@ Start Date: 1/10/2022
 Description: This file is the main file. Will run and execute the code.
 */
 
+#ifndef HEADER_INCLUEDS
+#define HEADER_INCLUEDS
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <string>
+#include <Windows.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "Pieces/Piece.cpp"
+#include "BoardNoah.cpp"
+#include "Moving.cpp"
+#include "moving.h"
+using namespace std;
+#endif
+
+/*
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -18,32 +35,22 @@ Description: This file is the main file. Will run and execute the code.
 #include <Windows.h>
 #include "Pieces/Piece.cpp"
 #include "BoardNoah.cpp"
+#include "Moving.cpp"
+*/
 
 int main()
 {
-    Piece knight;
-    Rook rook;
-    BoardNoah board;
-    knight.value = 3;
-    knight.name = "n";
-    rook.value = 3;
-
+    Piece knight = Piece(3, 1, false, true);
+    Piece pawn = Piece(1, 8, false, true);
+    Piece pieces[] = {knight, pawn};
     std::string input = "RNBQKBNRPPPPPPPP________________________________pppppppprnbqkbnr";
-    board.printBoard(input);
 
-    /*
-    Code below is a reference to how we may want to show our board. 
-    However, it was taken from another project so might have to figure the rest out on our own. 
-    Just a good start
-    */
-
-    
-    //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); //how many cells in window
-    //std::cout << "|";
-    //SetConsoleTextAttribute(hConsole, 114);
-    //std::cout << "    a  b  c  d  e  f  g  h    ";
-    //SetConsoleTextAttribute(hConsole, 15);
-    //std::cout << "|" << std::endl;
-    
+    //printBoard(input);
+    //int x = readInitialIndex();
+    //int y = readFinalIndex();
+    cout << knight.getAlive();
+    //cout << x << "\n" << y;
+    //setPosition(pieces, 1, 3);
+    //cout << knight.getPiecePostion() << "\n" << pawn.getPiecePostion();
 }
 

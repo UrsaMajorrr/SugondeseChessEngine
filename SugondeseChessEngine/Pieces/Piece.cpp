@@ -21,6 +21,8 @@ class Piece
 public:
 	//values
 	int value;
+	bool alive;
+	/*
 	enum class PieceType : char
 	{
 		PAWN = 'P',
@@ -30,7 +32,9 @@ public:
 		KING = 'K',
 		QUEEN = 'Q'
 	};
+	*/
 	int position;
+	/*
 	PieceType pieceType;
 	enum COLOR
 	{
@@ -38,16 +42,27 @@ public:
 		BLACK = 0x000000
 	};
 	COLOR color;
+	*/
 	bool isFirstMove;
 
 	//constructor
-	Piece(int value, int postion, PieceType pieceType, COLOR color, bool isFirstMove)
+	/*
+	Piece(int value, int postion, PieceType pieceType, COLOR color, bool isFirstMove, bool alive)
 	{
 		value = value;
 		position = position;
 		pieceType = pieceType;
 		color = color;
 		isFirstMove = isFirstMove;
+		alive = alive;
+	}
+	*/
+	Piece(int value, int postion, bool isFirstMove, bool alive)
+	{
+		value = value;
+		position = position;
+		isFirstMove = isFirstMove;
+		alive = alive;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -62,6 +77,18 @@ public:
 		return value;
 	}
 
+	void setAlive() {
+		alive = true;
+	}
+
+	bool getAlive() {
+		return alive;
+	}
+
+	void setDead() {
+		alive = false;
+	}
+
 	////////////////////////////////////////////////////////////////////////////////
 	//
 	// Function     : getPieceType
@@ -69,10 +96,12 @@ public:
 	//
 	// Inputs       : none
 	// Outputs      : pieceType
+	/*
 	PieceType getPieceType()
 	{
 		return pieceType;
 	}
+	*/
 
 	////////////////////////////////////////////////////////////////////////////////
 	//
@@ -86,6 +115,10 @@ public:
 		return position;
 	}
 
+	void setPiecePosition(int pos) {
+		position = pos;
+	}
+
 	////////////////////////////////////////////////////////////////////////////////
 	//
 	// Function     : getColor
@@ -93,10 +126,12 @@ public:
 	//
 	// Inputs       : none
 	// Outputs      : color
+	/*
 	COLOR getColor()
 	{
 		return color;
 	}
+	*/
 
 	////////////////////////////////////////////////////////////////////////////////
 	//
