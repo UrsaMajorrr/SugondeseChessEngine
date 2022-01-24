@@ -13,11 +13,12 @@
 using namespace std;
 #endif
 
-void setPosition(Piece pieces[2], int initialIndex, int finalIndex) {
-    for(int i=0; i < 2; i++) {
-        if(pieces[i].getPiecePostion() == initialIndex) {
-            cout << pieces[i].getPieceValue();
-            //pieces[i].setPiecePosition(finalIndex);
+void setPosition(Piece * pieces[32], int initialIndex, int finalIndex) {
+    for(int i=0; i < 32; i++) {
+        if(pieces[i]->position == initialIndex) {
+            //cout << pieces[i].value;
+            pieces[i]->position = finalIndex;
         }
     }
 }
+

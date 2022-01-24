@@ -40,17 +40,51 @@ using namespace std;
 
 int main()
 {
-    Piece knight = Piece(3, 1, false, true);
-    Piece pawn = Piece(1, 8, false, true);
-    Piece pieces[] = {knight, pawn};
-    std::string input = "RNBQKBNRPPPPPPPP________________________________pppppppprnbqkbnr";
+    Piece rook1_w = Piece(5, 0, false, true);
+    Piece knight1_w = Piece(3, 1, false, true);
+    Piece bishop1_w = Piece(3, 2, false, true);
+    Piece queen_w = Piece(9, 3, false, true);
+    Piece king_w = Piece(900, 4, false, true);
+    Piece bishop2_w = Piece(3, 5, false, true);
+    Piece knight2_w = Piece(3, 6, false, true);
+    Piece rook2_w = Piece(5, 7, false, true);
+    Piece pawn1_w = Piece(1, 8, false, true);
+    Piece pawn2_w = Piece(1, 9, false, true);
+    Piece pawn3_w = Piece(1, 10, false, true);
+    Piece pawn4_w = Piece(1, 11, false, true);
+    Piece pawn5_w = Piece(1, 12, false, true);
+    Piece pawn6_w = Piece(1, 13, false, true);
+    Piece pawn7_w = Piece(1, 14, false, true);
+    Piece pawn8_w = Piece(1, 15, false, true);
 
-    //printBoard(input);
-    //int x = readInitialIndex();
-    //int y = readFinalIndex();
-    cout << knight.getAlive();
-    //cout << x << "\n" << y;
-    //setPosition(pieces, 1, 3);
-    //cout << knight.getPiecePostion() << "\n" << pawn.getPiecePostion();
+    Piece pawn1_b = Piece(1, 48, false, true);
+    Piece pawn2_b = Piece(1, 49, false, true);
+    Piece pawn3_b = Piece(1, 50, false, true);
+    Piece pawn4_b = Piece(1, 51, false, true);
+    Piece pawn5_b = Piece(1, 52, false, true);
+    Piece pawn6_b = Piece(1, 53, false, true);
+    Piece pawn7_b = Piece(1, 54, false, true);
+    Piece pawn8_b = Piece(1, 55, false, true);
+    Piece rook1_b = Piece(5, 56, false, true);
+    Piece knight1_b = Piece(3, 57, false, true);
+    Piece bishop1_b = Piece(3, 58, false, true);
+    Piece queen_b = Piece(9, 59, false, true);
+    Piece king_b = Piece(900, 60, false, true);
+    Piece bishop2_b = Piece(3, 61, false, true);
+    Piece knight2_b = Piece(3, 62, false, true);
+    Piece rook2_b = Piece(5, 63, false, true);
+    
+    Piece *pieces[] = {&rook1_w, &knight1_w, &bishop1_w, &queen_w, &king_w, &bishop2_w, &knight2_w, &rook2_w, &pawn1_w, &pawn2_w, &pawn3_w, &pawn4_w, &pawn5_w, &pawn6_w, &pawn7_w, &pawn8_w, &rook1_b, &knight1_b, &bishop1_b, &queen_b, &king_b, &bishop2_b, &knight2_b, &rook2_b, &pawn1_b, &pawn2_b, &pawn3_b, &pawn4_b, &pawn5_b, &pawn6_b, &pawn7_b, &pawn8_b};
+    std::string input = "rnbqkbnrpppppppp________________________________RNBQKBNRPPPPPPPP";
+    while(1) {
+        cout << "\n";
+        printBoard(input);
+        int x = readInitialIndex();
+        int y = readFinalIndex();
+        setPosition(pieces, x, y);
+        input = updateBoard(input, x, y);
+        printBoard(input);
+        cout << "\n";
+    }
+    
 }
-

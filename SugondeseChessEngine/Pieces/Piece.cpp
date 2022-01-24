@@ -57,12 +57,12 @@ public:
 		alive = alive;
 	}
 	*/
-	Piece(int value, int postion, bool isFirstMove, bool alive)
-	{
-		value = value;
-		position = position;
-		isFirstMove = isFirstMove;
-		alive = alive;
+
+	Piece(int value_constr, int position_constr, bool isFirstMove_constr, bool alive_constr) {
+		value = value_constr;
+		position = position_constr;
+		isFirstMove = isFirstMove_constr;
+		alive = alive_constr;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////

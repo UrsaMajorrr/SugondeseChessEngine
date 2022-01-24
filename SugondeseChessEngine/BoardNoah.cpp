@@ -158,6 +158,12 @@ int readFinalIndex() {
     return index;
 }
 
+string updateBoard(string board, int initial_index, int final_index) {
+    board[final_index] = board[initial_index];
+    //board[initial_index] = (char) "_";
+    board = board.replace(initial_index, 1, "_");
+    return board;
+}
 
 //int main() {
 //    string input = "RNBQKBNRPPPPPPPP________________________________pppppppprnbqkbnr";

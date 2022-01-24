@@ -14,4 +14,4 @@ using namespace std;
 #endif
 
 
-void setPosition(Piece pieces[2], int initialIndex, int finalIndex);
+void setPosition(Piece *pieces[2], int initialIndex, int finalIndex);
