@@ -165,6 +165,14 @@ string updateBoard(string board, int initial_index, int final_index) {
     return board;
 }
 
+void printWhosTurn(bool isWhitesTurn) {
+    if(isWhitesTurn) {
+        cout << "\n" << "It's white's turn." << "\n";
+    } else {
+        cout << "\n" << "It's black's turn." << "\n";
+    }
+}
+
 //int main() {
 //    string input = "RNBQKBNRPPPPPPPP________________________________pppppppprnbqkbnr";
 //    printBoard(input);

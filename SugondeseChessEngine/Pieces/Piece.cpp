@@ -44,6 +44,7 @@ public:
 	COLOR color;
 	*/
 	bool isFirstMove;
+	bool isBlack;
 
 	//constructor
 	/*
@@ -58,11 +59,12 @@ public:
 	}
 	*/
 
-	Piece(int value_constr, int position_constr, bool isFirstMove_constr, bool alive_constr) {
+	Piece(int value_constr, int position_constr, bool isFirstMove_constr, bool alive_constr, bool isBlack_constr) {
 		value = value_constr;
 		position = position_constr;
 		isFirstMove = isFirstMove_constr;
 		alive = alive_constr;
+		isBlack = isBlack_constr;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
