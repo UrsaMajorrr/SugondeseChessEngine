@@ -10,6 +10,7 @@
 #include "Pieces/Piece.cpp"
 #include "BoardNoah.cpp"
 #include "Moving.cpp"
+#include "Pieces/KnightNoahClass.cpp"
 using namespace std;
 #endif
 

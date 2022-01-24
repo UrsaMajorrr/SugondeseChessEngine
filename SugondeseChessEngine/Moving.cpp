@@ -10,6 +10,7 @@
 #include "Pieces/Piece.cpp"
 #include "BoardNoah.cpp"
 #include "moving.h"
+#include "Pieces/KnightNoahClass.cpp"
 using namespace std;
 #endif
 
@@ -54,8 +55,15 @@ bool isThereAPieceThere(bool setInitial) {
     return true;
 }
 
-bool legalMove(Piece * pieces[32], int initialIndex, int finalIndex, bool isWhitesTurn) {
-    bool isMoveLegal;
+bool specificPieceLegalMove(Piece * piece, int finalIndex) {
+    bool isLegal = true;
+    if(piece->pieceType == "N") {
+        isLegal = isLegalKnightMove(piece, finalIndex);
+    }
+    return isLegal;
+}
+
+bool basicLegalMove(Piece * pieces[32], int initialIndex, int finalIndex, bool isWhitesTurn) {
     bool setInitial = false;
     bool setFinal = false;
     Piece * initialPiece;
@@ -77,8 +85,8 @@ bool legalMove(Piece * pieces[32], int initialIndex, int finalIndex, bool isWhit
 
     bool b = isItYourPiece(initialPiece, isWhitesTurn);
     bool c = isYourPieceAlreadyThere(initialPiece, finalPiece, setInitial, setFinal);
+    bool d = specificPieceLegalMove(initialPiece, finalIndex);
     
-    return a & b & c;
+    return a & b & c & d;
     
 }
-
