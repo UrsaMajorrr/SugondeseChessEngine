@@ -14,6 +14,8 @@
 using namespace std;
 #endif
 
+bool isLegalKnightMove(Piece * knight, int finalIndex);
+
 void setPosition(Piece * pieces[32], int initialIndex, int finalIndex) {
     for(int i=0; i < 32; i++) {
         if(pieces[i]->position == initialIndex) {

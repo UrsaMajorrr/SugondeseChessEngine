@@ -27,7 +27,15 @@ Description: This class describes the possible movements of the knight
 using namespace std;
 #endif
 
-void deleteMove(string moveString, string move) {  // "moveString" is the string containing possible moves and "move" is the move to delete
+string deleteMove(string moveString, string move);
+string setErrorPair(Piece * knight);
+string setLegalMoves(string errorPair);
+bool isLegalKnightMove(Piece * knight, int finalIndex);
+
+
+
+string deleteMove(string moveStr, string move) {  // "moveString" is the string containing possible moves and "move" is the move to delete
+	string moveString = moveStr;
 	int startPos = moveString.find(move);
 	if(startPos != string::npos) {
 		int strLen = moveString.length();
@@ -38,19 +46,20 @@ void deleteMove(string moveString, string move) {  // "moveString" is the string
 			moveString.erase(startPos, 5);
 		}
 	}
+	return moveString;
 }
 
 string setErrorPair(Piece * knight) {
 	int position = knight->position;
-	string errorPair;
+	string errorPair = "00";
 	if((position >= 18 && position <= 21) || (position >= 26 && position <= 29) || (position >= 34 && position <= 37) || (position >= 42 && position <= 45)) {
 		errorPair = "00"; // no error, all moves are legal
 	}
 	if(position == 0) {
-		errorPair == "11";
+		errorPair = "11";
 	}
-	if(position==1) {
-		errorPair == "12";
+	if(position == 1) {
+		errorPair = "12";
 	}
 	if(position >= 2 && position <= 5) {
 		errorPair = "10";
@@ -123,47 +132,47 @@ string setErrorPair(Piece * knight) {
 
 string setLegalMoves(string errorPair) {
 	string legalMoves = "u2r1/u2l1/l2u1/l2d1/r2u1/r2d1/d2r1/d2l1";
-	int row = (int) errorPair.at(0);
-	int col = (int) errorPair.at(1);
-	if (row == 1) {
-		deleteMove(legalMoves, "u2r1");
-		deleteMove(legalMoves, "u2l1");
-		deleteMove(legalMoves, "l2u1");
-		deleteMove(legalMoves, "r2u1");
+	string row = errorPair.substr(0,1);
+	string col = errorPair.substr(1,1);
+	if (row == "1") {
+		legalMoves = deleteMove(legalMoves, "u2r1");
+		legalMoves = deleteMove(legalMoves, "u2l1");
+		legalMoves = deleteMove(legalMoves, "l2u1");
+		legalMoves = deleteMove(legalMoves, "r2u1");
 	}
-	if (row == 2) {
-		deleteMove(legalMoves, "u2r1");
-		deleteMove(legalMoves, "u2l1");
+	if (row == "2") {
+		legalMoves = deleteMove(legalMoves, "u2r1");
+		legalMoves = deleteMove(legalMoves, "u2l1");
 	}
-	if (row == 3) {
-		deleteMove(legalMoves, "d2r1");
-		deleteMove(legalMoves, "d2l1");
+	if (row == "3") {
+		legalMoves = deleteMove(legalMoves, "d2r1");
+		legalMoves = deleteMove(legalMoves, "d2l1");
 	}
-	if (row == 4) {
-		deleteMove(legalMoves, "d2r1");
-		deleteMove(legalMoves, "d2l1");
-		deleteMove(legalMoves, "r2d1");
-		deleteMove(legalMoves, "l2d1");
+	if (row == "4") {
+		legalMoves = deleteMove(legalMoves, "d2r1");
+		legalMoves = deleteMove(legalMoves, "d2l1");
+		legalMoves = deleteMove(legalMoves, "r2d1");
+		legalMoves = deleteMove(legalMoves, "l2d1");
 	}
-	if (col == 1) {
-		deleteMove(legalMoves, "u2l1");
-		deleteMove(legalMoves, "l2u1");
-		deleteMove(legalMoves, "l2d1");
-		deleteMove(legalMoves, "d2l1");
+	if (col == "1") {
+		legalMoves = deleteMove(legalMoves, "u2l1");
+		legalMoves = deleteMove(legalMoves, "l2u1");
+		legalMoves = deleteMove(legalMoves, "l2d1");
+		legalMoves = deleteMove(legalMoves, "d2l1");
 	}
-	if (col == 2) {
-		deleteMove(legalMoves, "l2u1");
-		deleteMove(legalMoves, "l2d1");
+	if (col == "2") {
+		legalMoves = deleteMove(legalMoves, "l2u1");
+		legalMoves = deleteMove(legalMoves, "l2d1");
 	}
-	if (col == 3) {
-		deleteMove(legalMoves, "r2u1");
-		deleteMove(legalMoves, "r2d1");
+	if (col == "3") {
+		legalMoves = deleteMove(legalMoves, "r2u1");
+		legalMoves = deleteMove(legalMoves, "r2d1");
 	}
-	if (col == 4) {
-		deleteMove(legalMoves, "r2u1");
-		deleteMove(legalMoves, "r2d1");
-		deleteMove(legalMoves, "u2r1");
-		deleteMove(legalMoves, "d2r1");
+	if (col == "4") {
+		legalMoves = deleteMove(legalMoves, "r2u1");
+		legalMoves = deleteMove(legalMoves, "r2d1");
+		legalMoves = deleteMove(legalMoves, "u2r1");
+		legalMoves = deleteMove(legalMoves, "d2r1");
 	}
 	return legalMoves;
 }
@@ -172,55 +181,52 @@ bool isLegalKnightMove(Piece * knight, int finalIndex) {
 	string errorPair = setErrorPair(knight);
 	string moveStr = setLegalMoves(errorPair);
 	int position = knight->position;
-
 	if((moveStr.find("u2r1")) != string::npos) {
-		if(finalIndex = position - 15) {
+		if(finalIndex == position - 15) {
 			return true;
 		}
 	}
 	if((moveStr.find("u2l1")) != string::npos) {
-		if(finalIndex = position - 17) {
+		if(finalIndex == position - 17) {
 			return true;
 		}
 	}
 
 	if((moveStr.find("l2u1")) != string::npos) {
-		if(finalIndex = position - 10) {
+		if(finalIndex == position - 10) {
 			return true;
 		}
 	}
 
 	if((moveStr.find("l2d1")) != string::npos) {
-		if(finalIndex = position + 6) {
+		if(finalIndex == position + 6) {
 			return true;
 		}
 	}
 
 	if((moveStr.find("r2u1")) != string::npos) {
-		if(finalIndex = position - 6) {
+		if(finalIndex == position - 6) {
 			return true;
 		}
 	}
 
-	if((moveStr.find("r2d1")) != string::npos) {
-		if(finalIndex = position + 10) {
+	if(((moveStr.find("r2d1")) != string::npos) && (finalIndex == position + 10)) {
+		if(finalIndex == position + 10) {
 			return true;
 		}
 	}
 
-	if((moveStr.find("d2r1")) != string::npos) {
-		if(finalIndex = position + 17) {
-			return true;
-		}
+	if(((moveStr.find("d2r1")) != string::npos) && (finalIndex == position + 17)) {
+		return true;
+
 	}
 
 	if((moveStr.find("d2l1")) != string::npos) {
-		if(finalIndex = position + 15) {
+		if(finalIndex == position + 15) {
 			return true;
 		}
 	}
-	else {
-		cout << "\n" << "Illegal move! Out of knight bounds. Here are is a list of possible moves: " << moveStr;
-	}
+	cout << "\n" << "Illegal move! Out of knight's bounds. Here are is a list of possible moves: " << moveStr;
+
 	return false;
 }
