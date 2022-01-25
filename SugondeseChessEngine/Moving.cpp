@@ -73,8 +73,8 @@ bool specificPieceLegalMove(Piece * pieces[32], Piece * piece, int finalIndex) {
 bool basicLegalMove(Piece * pieces[32], int initialIndex, int finalIndex, bool isWhitesTurn) {
     bool setInitial = false;
     bool setFinal = false;
-    Piece * initialPiece;
-    Piece * finalPiece;
+    Piece * initialPiece = nullptr;
+    Piece * finalPiece = nullptr;
     for(int i=0; i < 32; i++) {
         if(pieces[i]->position == initialIndex) {
             initialPiece = pieces[i];
@@ -94,6 +94,6 @@ bool basicLegalMove(Piece * pieces[32], int initialIndex, int finalIndex, bool i
     bool c = isYourPieceAlreadyThere(initialPiece, finalPiece, setInitial, setFinal);
     bool d = specificPieceLegalMove(pieces, initialPiece, finalIndex);
     
-    return a & b & c & d;
+    return a && b && c && d;
     
 }

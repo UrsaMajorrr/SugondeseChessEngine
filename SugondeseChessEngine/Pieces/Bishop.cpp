@@ -38,7 +38,7 @@ using namespace std;
 //    -
 
 
-// need to add boundry issues
+// need to add boundary issues
 
 bool wayOne(Piece * pieces[32], Piece * bishop, int finalIndex) { // way one direction are 9 apart
     int position = bishop->position;
@@ -50,36 +50,33 @@ bool wayOne(Piece * pieces[32], Piece * bishop, int finalIndex) { // way one dir
             iterationLen = abs(pieces[i]->position - position);
             if(iterationLen % 9 == 0) {
                 if((iterationLen < moveLen) && (iterationLen != 0)) {
-                    cout << "Illegal move! A piece is blocking that move. Try again.";
+                    cout << "Illegal bishop move! A piece is blocking that move. Try again.";
                     return false;
                 }
             }
-            
         }
+        return true;
     }
-    return true;
-}
 
-bool wayTwo(Piece * pieces[32], Piece * bishop, int finalIndex) { // way one direction are 9 apart
-    int position = bishop->position;
-    int moveLen = abs(finalIndex - position);
-    int iterationLen;
-
-    if((moveLen) % 7 == 0)  {
-        for(int i=0; i < 32; i++) {
+    if ((moveLen) % 7 == 0) {
+        for (int i = 0; i < 32; i++) {
             iterationLen = abs(pieces[i]->position - position);
-            if(iterationLen % 7 == 0) {
-                if((iterationLen < moveLen) && (iterationLen != 0)) {
-                    cout << "Illegal move! A piece is blocking that move. Try again.";
+            if (iterationLen % 7 == 0) {
+                if ((iterationLen < moveLen) && (iterationLen != 0)) {
+                    cout << "Illegal bishop move! A piece is blocking that move. Try again.";
                     return false;
                 }
             }
-            
         }
+        return true;
     }
-    return true;
+
+    cout << "Bishops can only move diagonally.";
+
+    return false;
 }
+
 
 bool isLegalBishopMove(Piece * pieces[32], Piece * bishop, int finalIndex) {
-    return (wayOne(pieces, bishop, finalIndex) | wayTwo(pieces, bishop, finalIndex));
+    return (wayOne(pieces, bishop, finalIndex));
 }
