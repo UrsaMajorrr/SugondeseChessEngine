@@ -25,6 +25,7 @@ Description: This file is the main file. Will run and execute the code.
 #include "Moving.cpp"
 #include "moving.h"
 #include "Pieces/KnightNoahClass.cpp"
+#include "Pieces/Bishop.cpp"
 using namespace std;
 #endif
 
